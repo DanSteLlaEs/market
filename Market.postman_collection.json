@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "e8e14e3a-2e2e-4a0f-973e-e1edc647c24d",
+		"name": "Market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYW5pZWwiLCJpYXQiOjE2MTkxMjQ0MDYsImV4cCI6MTYxOTE2MDQwNn0.JaM33zkI7u_4Cyz86qKrHEV-PzTTYSQ0NUIC6kR9WHQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/market/api/products/all?=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"market",
+						"api",
+						"products",
+						"all"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				},
+				"description": "Llamando el metodo all para traer todos los datos de productos"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a id Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/market/api/products/52",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"market",
+						"api",
+						"products",
+						"52"
+					]
+				},
+				"description": "Trae el producto por el id que indiquemos"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products by category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/market/api/products/category/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"market",
+						"api",
+						"products",
+						"category",
+						"1"
+					]
+				},
+				"description": "Nos trae los prodcutos de la categoria indicada por id"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"name\": \"Lechuga\",\r\n        \"categoryId\": 1,\r\n        \"price\": 2000.0,\r\n        \"stock\": 60,\r\n        \"active\": true\r\n      \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/market/api/products/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"market",
+						"api",
+						"products",
+						"save"
+					]
+				},
+				"description": "Enviamos un nuevo producto a la bd"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/market/api/products/delete/52",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"market",
+						"api",
+						"products",
+						"delete",
+						"52"
+					]
+				},
+				"description": "Eliminamos el id de producto seleccionado"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Purchase",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/market/api/purchases/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"market",
+						"api",
+						"purchases",
+						"all"
+					]
+				},
+				"description": "Trae todas las compras que hay en la bd"
+			},
+			"response": []
+		},
+		{
+			"name": "Get purchase by client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/market/api/purchases/client/4546221",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"market",
+						"api",
+						"purchases",
+						"client",
+						"4546221"
+					]
+				},
+				"description": "Nos trae las compra por el id del cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Save purchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"purchaseId\": 2,\r\n        \"clientId\": \"4546221\",\r\n        \"date\": \"2020-08-10T17:30:00\",\r\n        \"paymentMethod\": \"T\",\r\n        \"comment\": \"\",\r\n        \"state\": \"P\",\r\n        \"items\": [\r\n            {\r\n                \"productId\": 1,\r\n                \"quantity\": 10,\r\n                \"total\": 3000.0,\r\n                \"active\": true\r\n            },\r\n            {\r\n                \"productId\": 24,\r\n                \"quantity\": 1,\r\n                \"total\": 4000.0,\r\n                \"active\": true\r\n            },\r\n            {\r\n                \"productId\": 27,\r\n                \"quantity\": 1,\r\n                \"total\": 9000.0,\r\n                \"active\": true\r\n            },\r\n            {\r\n                \"productId\": 36,\r\n                \"quantity\": 1,\r\n                \"total\": 40000.0,\r\n                \"active\": true\r\n            },\r\n            {\r\n                \"productId\": 49,\r\n                \"quantity\": 2,\r\n                \"total\": 16400.0,\r\n                \"active\": true\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/market/api/purchases/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"market",
+						"api",
+						"purchases",
+						"save"
+					]
+				},
+				"description": "Guarda una compra "
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"daniel\"\r\n    \"password\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/market/api/auth/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"market",
+						"api",
+						"auth",
+						"authenticate"
+					]
+				},
+				"description": "Hace la autenticacion del jwt"
+			},
+			"response": []
+		}
+	]
+}
